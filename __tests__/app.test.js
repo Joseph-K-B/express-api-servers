@@ -15,16 +15,7 @@ describe('trivia application', () => {
       .get('/api/random')
       .then((res) => 
       {
-        expect(res.body).toEqual(
-          [{
-            category: expect.any(String),
-            type: expect.any(String),
-            difficulty: expect.any(String),
-            question: expect.any(String),
-            correct_answer: expect.any(String),
-            incorrect_answers: expect.any(String)
-          }]
-        );
+        expect(res.body).toEqual(expect.any(Array));
       });
   });
 
