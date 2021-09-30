@@ -3,7 +3,7 @@ import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
 // import randomTriviaService from '../lib/services/randomTriviaService.js';
-// import randomQuestions from '../lib/models/randomTrivia.js';
+import randomQuestions from '../lib/models/randomTrivia.js';
 
 describe('trivia application', () => {
   // beforeEach(() => 
@@ -66,6 +66,25 @@ describe('trivia application', () => {
           difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
+        });
+      });
+  });
+
+  it('updates the question by the id', async () =>
+  {
+    // const putQuestion = await randomQuestions.insert({ answer: 'Not Istanbul' });
+
+    return request(app)
+      .put('/api/random/1')
+      .send({ answer: 'Not Istanbul' })
+      .then((res) =>
+      {
+        expect(res.body).toEqual({
+          id: '1',
+          category: 'Geography',
+          difficulty: 'easy',
+          question: 'What city is built on two continents?',
+          answer: 'Not Istanbul'
         });
       });
   });
