@@ -3,7 +3,7 @@ import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
 // import randomTriviaService from '../lib/services/randomTriviaService.js';
-import randomQuestions from '../lib/models/randomTrivia.js';
+// import randomQuestions from '../lib/models/randomTrivia.js';
 
 describe('trivia application', () => {
   // beforeEach(() => 
@@ -37,7 +37,6 @@ describe('trivia application', () => {
       )
       .then(res => 
       {
-        console.log(res.body);
         expect(res.body).toEqual(expect.any(Object));
       });
   });
@@ -49,8 +48,26 @@ describe('trivia application', () => {
       .get('/api/random')
       .then(res =>
       {
+        // console.log('Test File getAll ', res.body);
         expect(res.body).toEqual(expect.any(Array));
       });      
+  });
+
+  it('gets random question by id from db', async() =>
+  {
+    return request(app)
+      .get('/api/random/2')
+      .then(res =>
+      {
+        // console.log('Test File get:id', res.body);
+        expect(res.body).toEqual({
+          id: expect.any(String),
+          category: expect.any(String),
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        });
+      });
   });
 
 
