@@ -1,7 +1,7 @@
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import request from 'supertest';
-import animalQuestions from '../lib/models/animalTrivia.js';
+// import animalQuestions from '../lib/models/animalTrivia.js';
 import app from '../lib/app.js';
 
 
@@ -21,7 +21,7 @@ describe('trivia application', () => {
       .get('/api/animal')
       .then((res) => 
       {
-        console.log('GET ALL ANIMAL QUESTIONS ON TEST FILE', res.body);
+        // console.log('GET ALL ANIMAL QUESTIONS ON TEST FILE', res.body);
         expect(res.body).toEqual(expect.any(Array));
       });
   });

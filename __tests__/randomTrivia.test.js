@@ -100,7 +100,7 @@ describe('trivia application', () => {
       }
     );
     return request(app)
-      .put('/api/random/1')
+      .patch('/api/random/1')
       .send({ answer: 'Not Istanbul' })
       .then((res) =>
       {
@@ -126,7 +126,7 @@ describe('trivia application', () => {
       }
     );
     const res = await request(app)
-      .delete('/api/trivia/1');
+      .delete('/api/random/1');
     expect (res.body).toEqual({});
   });
 
