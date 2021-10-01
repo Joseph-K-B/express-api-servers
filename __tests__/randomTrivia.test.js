@@ -48,16 +48,16 @@ describe('trivia application', () => {
 
 
 
-  it('it gets all random questions from database', async() =>
-  {
+  // it('it gets all random questions from database', async() =>
+  // {
 
-    return await request(app)
-      .get('/api/random')
-      .then(res =>
-      {
-        expect(res.body).toEqual(expect.any(Array));
-      });      
-  });
+  //   return await request(app)
+  //     .get('/api/random')
+  //     .then(res =>
+  //     {
+  //       expect(res.body).toEqual(expect.any(Array));
+  //     });      
+  // });
 
 
 
@@ -77,13 +77,14 @@ describe('trivia application', () => {
       .get('/api/random/1')
       .then(res =>
       {
-        expect(res.body).toEqual({
-          id: '1',
-          category: expect.any(String),
-          difficulty: expect.any(String),
-          question: expect.any(String),
-          answer: expect.any(String)
-        });
+        expect(res.body).toEqual(
+          {
+            id: '1',
+            category: expect.any(String),
+            difficulty: expect.any(String),
+            question: expect.any(String),
+            answer: expect.any(String)
+          });
       });
   });
 
