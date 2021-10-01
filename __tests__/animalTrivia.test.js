@@ -21,8 +21,28 @@ describe('trivia application', () => {
       .get('/api/animal')
       .then((res) => 
       {
-        // console.log('GET ALL CS QUESTIONS ON TEST FILE', res.body);
+        console.log('GET ALL ANIMAL QUESTIONS ON TEST FILE', res.body);
         expect(res.body).toEqual(expect.any(Array));
+      });
+  });
+
+
+
+  it('it posts cs questions to /animals', async () =>
+  {
+    return await request(app)
+      .post('/api/animal')
+      .send(
+        {
+          category: 'Animals',
+          difficulty: 'easy',
+          question: 'What is the collective noun for rats?',
+          answer: 'Mischief'
+        }
+      )
+      .then(res =>
+      {
+        expect(res.body).toEqual(expect.any(Object));
       });
   });
 

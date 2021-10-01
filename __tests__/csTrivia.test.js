@@ -31,7 +31,7 @@ describe('trivia application', () => {
 
 
 
-  it('it posts cs questions to /trivia/cs', async() => 
+  it('it posts cs questions to /cs', async() => 
   {
     return await request(app)
       .post('/api/cs')
