@@ -104,6 +104,8 @@ describe('trivia application', () => {
       .send({ answer: 'Not Istanbul' })
       .then((res) =>
       {
+
+        console.log(res.body);
         expect(res.body).toEqual({
           category: 'Geography',
           difficulty: 'easy',
