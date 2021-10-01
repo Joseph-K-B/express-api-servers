@@ -4,6 +4,7 @@ import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
 import randomQuestions from '../lib/models/randomTrivia.js';
+import csQuestions from '../lib/models/csTrivia.js';
 // import randomTriviaService from '../lib/services/randomTriviaService.js';
 // import randomQuestions from '../lib/models/randomTrivia.js';
 
@@ -15,7 +16,7 @@ describe('trivia application', () => {
 
 
 
-  //RANDOM
+  ///---RANDOM---///
   it('Get\'s random trivia questions from API', async() =>
   {
     return await request(app)
@@ -25,10 +26,11 @@ describe('trivia application', () => {
         expect(res.body).toEqual(expect.any(Array));
       });
   });
+
+
     
   it('it posts random questions to /random', async() => 
   {
-    // const questions = await randomTriviaService.getRandomQuestions();
     return await request(app)
       .post('/api/trivia/random')
       .send(
@@ -45,6 +47,8 @@ describe('trivia application', () => {
       });
   });
 
+
+
   it('it gets all random questions from database', async() =>
   {
 
@@ -52,10 +56,11 @@ describe('trivia application', () => {
       .get('/api/trivia/random')
       .then(res =>
       {
-        // console.log('Test File getAll ', res.body);
         expect(res.body).toEqual(expect.any(Array));
       });      
   });
+
+
 
   it('gets random question by id from db', async() =>
   {
@@ -68,12 +73,11 @@ describe('trivia application', () => {
         answer: '1'
       }
     );
-    // console.log(question);
+
     return request(app)
       .get('/api/trivia/random/1')
       .then(res =>
       {
-        // console.log('Test File get:id', res.body);
         expect(res.body).toEqual({
           id: '1',
           category: expect.any(String),
@@ -83,6 +87,8 @@ describe('trivia application', () => {
         });
       });
   });
+
+
 
   it.skip('updates the random question by the id', async () =>
   {
@@ -100,6 +106,8 @@ describe('trivia application', () => {
       });
   });
 
+
+
   it('deletes random questions from DB by ID', async () =>
   {
     const res = await request(app)
@@ -107,7 +115,9 @@ describe('trivia application', () => {
     expect (res.body).toEqual({});
   });
 
-  //COMPUTER SCIENCE
+
+
+  ///---COMPUTER SCIENCE---///
   it('Get\'s computer science trivia questions from API', async() =>
   {
     return await request(app)
@@ -115,6 +125,66 @@ describe('trivia application', () => {
       .then((res) => 
       {
         expect(res.body).toEqual(expect.any(Array));
+      });
+  });
+
+
+
+  it('it posts cs questions to /trivia/cs', async() => 
+  {
+    return await request(app)
+      .post('/api/trivia/cs')
+      .send(
+        {
+          category: 'Science: Computers',
+          difficulty: 'easy',
+          question: 'Who invented JavaScript?',
+          answer: 'Marty Nelson'
+        }
+      )
+      .then(res => 
+      {
+        expect(res.body).toEqual(expect.any(Object));
+      });
+  });
+
+
+
+  it('gets CS question by id from db', async() =>
+  {
+    // eslint-disable-next-line no-unused-vars
+    const question = await csQuestions.insert(
+      {
+        category: 'Science: Computers',
+        difficulty: 'easy',
+        question: 'Who invented the computer?',
+        answer: 'Walt Disney'
+      },
+      {
+        category: 'Science: Computers',
+        difficulty: 'easy',
+        question: 'Where does data float around?',
+        answer: 'The cloud'
+      },
+      {
+        category: 'Science: Computers',
+        difficulty: 'easy',
+        question: 'How does JavaScript work?',
+        answer: 'Magic'
+      }
+    );
+
+    return request(app)
+      .get('/api/trivia/cs/3')
+      .then(res =>
+      {
+        expect(res.body).toEqual({
+          id: '3',
+          category: 'Science: Computers',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        });
       });
   });
 
