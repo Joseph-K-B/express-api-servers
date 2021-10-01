@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import request from 'supertest';
@@ -12,10 +13,13 @@ describe('trivia application', () => {
     return setup(pool);
   });
 
+
+
+  //RANDOM
   it('Get\'s random trivia questions from API', async() =>
   {
     return await request(app)
-      .get('/api/random')
+      .get('/api/trivia/random')
       .then((res) => 
       {
         expect(res.body).toEqual(expect.any(Array));
@@ -26,7 +30,7 @@ describe('trivia application', () => {
   {
     // const questions = await randomTriviaService.getRandomQuestions();
     return await request(app)
-      .post('/api/random')
+      .post('/api/trivia/random')
       .send(
         {
           category: 'Geography',
@@ -41,11 +45,11 @@ describe('trivia application', () => {
       });
   });
 
-  it('it gets all questions from database', async() =>
+  it('it gets all random questions from database', async() =>
   {
 
     return await request(app)
-      .get('/api/random')
+      .get('/api/trivia/random')
       .then(res =>
       {
         // console.log('Test File getAll ', res.body);
@@ -55,6 +59,7 @@ describe('trivia application', () => {
 
   it('gets random question by id from db', async() =>
   {
+    // eslint-disable-next-line no-unused-vars
     const question = await randomQuestions.insert(
       {
         category: 'Astronomy',
@@ -63,8 +68,9 @@ describe('trivia application', () => {
         answer: '1'
       }
     );
+    // console.log(question);
     return request(app)
-      .get('/api/random/1')
+      .get('/api/trivia/random/1')
       .then(res =>
       {
         // console.log('Test File get:id', res.body);
@@ -78,10 +84,10 @@ describe('trivia application', () => {
       });
   });
 
-  it('updates the question by the id', async () =>
+  it.skip('updates the random question by the id', async () =>
   {
     return request(app)
-      .put('/api/random/1')
+      .put('/api/trivia/random/1')
       .send({ answer: 'Not Istanbul' })
       .then((res) =>
       {
@@ -94,6 +100,23 @@ describe('trivia application', () => {
       });
   });
 
+  it('deletes random questions from DB by ID', async () =>
+  {
+    const res = await request(app)
+      .delete('/api/trivia/random/1');
+    expect (res.body).toEqual({});
+  });
+
+  //COMPUTER SCIENCE
+  it('Get\'s computer science trivia questions from API', async() =>
+  {
+    return await request(app)
+      .get('/api/trivia/cs')
+      .then((res) => 
+      {
+        expect(res.body).toEqual(expect.any(Array));
+      });
+  });
 
 
   afterAll(() => 
