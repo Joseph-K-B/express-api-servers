@@ -48,4 +48,13 @@ INSERT INTO cs_trivia (
     difficulty, 
     question,
     answer) 
-  VALUES ('Science: Computers', 'easy', 'Who invented JavaScript?', 'Marty Nelson')  
+  VALUES ('Science: Computers', 'easy', 'Who invented JavaScript?', 'Marty Nelson');
+
+
+
+  INSERT INTO animal_trivia (
+    category, 
+    difficulty, 
+    question,
+    answer) 
+  VALUES ('Animal', null, 'What is the collective noun for rats?', 'Mischief')  

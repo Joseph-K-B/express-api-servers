@@ -89,6 +89,33 @@ describe('trivia application', () => {
   });
 
 
+
+  it('updates animalQuestion by id', async () =>
+  {
+    return request(app)
+      .patch('/api/cs/1')
+      .send(
+        {
+          category:'Animals',
+          difficulty: 'easy',
+          question: 'What is the collective noun for rats?',
+          answer: 'Mischief'
+        })
+      .then((res) =>
+      {
+        expect(res.body).toEqual(
+          {
+            id: '1',
+            category:'Animals',
+            difficulty: 'easy',
+            question: 'What is the collective noun for rats?',
+            answer: 'Mischief'
+          }
+        );
+      });
+  });
+
+
   it('deletes animal question from DB by ID', async () =>
   {
     const question1 = await animalTrivia.insert(
