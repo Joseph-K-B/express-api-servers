@@ -2,7 +2,6 @@
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
 import request from 'supertest';
-// import animalQuestions from '../lib/models/animalTrivia.js';
 import app from '../lib/app.js';
 import animalTrivia from '../lib/models/animalTrivia.js';
 
