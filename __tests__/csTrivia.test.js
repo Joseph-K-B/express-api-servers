@@ -25,7 +25,6 @@ describe('trivia application', () => {
       .get('/api/cs')
       .then((res) => 
       {
-        // console.log('GET ALL CS QUESTIONS ON TEST FILE', res.body);
         expect(res.body).toEqual(expect.any(Array));
       });
   });

@@ -47,20 +47,7 @@ describe('trivia application', () => {
   });
 
 
-
-  // it('it gets all random questions from database', async() =>
-  // {
-
-  //   return await request(app)
-  //     .get('/api/random')
-  //     .then(res =>
-  //     {
-  //       expect(res.body).toEqual(expect.any(Array));
-  //     });      
-  // });
-
-
-
+  
   it('gets random question by id from db', async() =>
   {
     // eslint-disable-next-line no-unused-vars
