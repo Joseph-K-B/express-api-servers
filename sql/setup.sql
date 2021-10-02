@@ -74,4 +74,4 @@ INSERT INTO cs_trivia (
     difficulty, 
     question,
     answer) 
-  VALUES ('History', null, 'What year was the Guy Fawkes Gunpowder Plot?', '1605')  
+  VALUES ('History', 'hard', 'What year was the Guy Fawkes Gunpowder Plot?', '1605')  
