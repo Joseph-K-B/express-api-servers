@@ -92,16 +92,30 @@ describe('trivia application', () => {
   });
 
 
-
-  // it('gets all computer science questions from DB', async() =>
-  // {
-  //   return await request(app)
-  //     .get('/api/cs')
-  //     .then(res =>
-  //     {
-  //       expect(res.body).toEqual(expect.any(Array));
-  //     });
-  // });
+  it('updates csQuestion by id', async () =>
+  {
+    return request(app)
+      .patch('/api/cs/1')
+      .send(
+        {
+          category: 'Science: Computers',
+          difficulty: 'extreme',
+          question: 'Who invented JavaScript?',
+          answer: 'Marty Nelson'
+        })
+      .then((res) =>
+      {
+        expect(res.body).toEqual(
+          {
+            id: '1',
+            category: 'Science: Computers',
+            difficulty: 'extreme',
+            question: 'Who invented JavaScript?',
+            answer: 'Marty Nelson'
+          }
+        );
+      });
+  });
 
   it('deletes computer science question from database', async () =>
   {

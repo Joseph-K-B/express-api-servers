@@ -92,14 +92,6 @@ describe('trivia application', () => {
 
   it('updates the random question by the id', async () =>
   {
-    // const question = await randomQuestions.insert(
-    //   {
-    //     category: 'Geography',
-    //     difficulty: 'easy',
-    //     question: 'What city is built on two continents?',
-    //     answer: 'Istanbul'
-    //   }
-    // );
     return request(app)
       .patch('/api/random/1')
       .send(
@@ -113,13 +105,14 @@ describe('trivia application', () => {
       {
 
         console.log(res.body);
-        expect(res.body).toEqual({
-          id: '1',
-          category: 'Geography',
-          difficulty: 'easy',
-          question: 'What city is built on two continents?',
-          answer: 'Not Istanbul'
-        });
+        expect(res.body).toEqual(
+          {
+            id: '1',
+            category: 'Geography',
+            difficulty: 'easy',
+            question: 'What city is built on two continents?',
+            answer: 'Not Istanbul'
+          });
       });
   });
 

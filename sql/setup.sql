@@ -39,4 +39,13 @@ INSERT INTO random_trivia (
     difficulty, 
     question,
     answer) 
-  VALUES ('Geography', 'easy', 'What city is built on two continents?', 'Istanbul')
+  VALUES ('Geography', 'easy', 'What city is built on two continents?', 'Istanbul');
+
+
+
+INSERT INTO cs_trivia (
+    category, 
+    difficulty, 
+    question,
+    answer) 
+  VALUES ('Science: Computers', 'easy', 'Who invented JavaScript?', 'Marty Nelson')  
