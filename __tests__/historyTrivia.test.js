@@ -24,6 +24,26 @@ describe('trivia application', () => {
   });
 
 
+
+  it('posts history questions to /history', async () =>
+  {
+    return await request(app)
+      .post('/api/history')
+      .send(
+        {
+          category: 'History',
+          difficulty: 'easy',
+          question: 'What year was Jeff Bezos the first person to lick the moon?',
+          answer: 'yesteryear'
+        }
+      )
+      .then(res =>
+      {
+        expect(res.body).toEqual(expect.any(Object));
+      });
+  });
+
+
   afterAll(() => 
   {
     pool.end();
