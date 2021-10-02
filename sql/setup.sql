@@ -32,7 +32,15 @@ CREATE TABLE animal_trivia (
     answer VARCHAR(512) NOT NULL
 );
 
+DROP TABLE IF EXISTS history_trivia;
 
+CREATE TABLE history_trivia (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    category VARCHAR(512) NOT NULL,
+    difficulty VARCHAR(256),
+    question VARCHAR(512) NOT NULL,
+    answer VARCHAR(512) NOT NULL
+);
 
 INSERT INTO random_trivia (
     category, 
@@ -57,4 +65,13 @@ INSERT INTO cs_trivia (
     difficulty, 
     question,
     answer) 
-  VALUES ('Animal', null, 'What is the collective noun for rats?', 'Mischief')  
+  VALUES ('Animal', null, 'What is the collective noun for rats?', 'Mischief');
+
+
+
+  INSERT INTO history_trivia (
+    category, 
+    difficulty, 
+    question,
+    answer) 
+  VALUES ('History', null, 'What year was the Guy Fawkes Gunpowder Plot?', '1605')  
