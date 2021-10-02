@@ -95,7 +95,7 @@ describe('trivia application', () => {
       .send(
         {
           category:'History',
-          difficulty: 'easy',
+          difficulty: 'hard',
           question: 'What year was the Guy Fawkes Gunpowder Plot?',
           answer: '1605'
         })
@@ -105,13 +105,33 @@ describe('trivia application', () => {
           {
             id: '1',
             category:'History',
-            difficulty: 'easy',
+            difficulty: 'hard',
             question: 'What year was the Guy Fawkes Gunpowder Plot?',
             answer: '1605'
           }
         );
       });
   });
+
+
+
+  it('deletes history question from DB by ID', async () =>
+  {
+    const question1 = await historyTrivia.insert(
+      {
+        category: 'History',
+        difficulty: 'easy',
+        question: 'What year is it? Fuck',
+        answer: '2000+'
+      });
+    const res = await request(app)
+      .delete('/api/history/1');
+    expect(res.body).toEqual({});
+  });
+
+
+
+
   afterAll(() => 
   {
     pool.end();

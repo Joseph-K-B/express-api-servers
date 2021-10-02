@@ -6,14 +6,13 @@ import app from '../lib/app.js';
 import animalTrivia from '../lib/models/animalTrivia.js';
 
 
-
-
-
 describe('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
   });
+
+
 
   ///---ANIMAL---///
   it('Get\'s animal trivia questions from API', async() =>
