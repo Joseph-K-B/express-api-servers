@@ -115,6 +115,22 @@ describe('trivia application', () => {
   });
 
 
+
+  it('deletes general question', async () =>
+  {
+    const question = generalTrivia.insert(
+      {
+        category: 'General Knowledge',
+        difficulty: 'easy',
+        question: 'Whats the hex value for blue?',
+        answer: '#0000FF'
+      }
+    );
+    const res = await request(app)
+      .delete('/api/general/1');
+    expect (res.body).toEqual({});
+  });
+
   afterAll(() => 
   {
     pool.end();
