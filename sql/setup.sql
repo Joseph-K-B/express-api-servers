@@ -32,6 +32,8 @@ CREATE TABLE animal_trivia (
     answer VARCHAR(512) NOT NULL
 );
 
+
+
 DROP TABLE IF EXISTS history_trivia;
 
 CREATE TABLE history_trivia (
@@ -41,6 +43,20 @@ CREATE TABLE history_trivia (
     question VARCHAR(512) NOT NULL,
     answer VARCHAR(512) NOT NULL
 );
+
+
+DROP TABLE IF EXISTS general_trivia;
+
+
+CREATE TABLE general_trivia (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    category VARCHAR(512) NOT NULL,
+    difficulty VARCHAR(256),
+    question VARCHAR(512) NOT NULL,
+    answer VARCHAR(512) NOT NULL
+);
+
+
 
 INSERT INTO random_trivia (
     category, 
@@ -69,9 +85,18 @@ INSERT INTO cs_trivia (
 
 
 
-  INSERT INTO history_trivia (
+ INSERT INTO history_trivia (
     category, 
     difficulty, 
     question,
     answer) 
-  VALUES ('History', 'hard', 'What year was the Guy Fawkes Gunpowder Plot?', '1605')  
+  VALUES ('History', 'easy', 'What year was the Guy Fawkes Gunpowder Plot?', '1605');
+
+
+
+  INSERT INTO general_trivia (
+    category, 
+    difficulty, 
+    question,
+    answer) 
+  VALUES ('General', 'easy', 'Whats the hex value for blue?', '#0000FF');

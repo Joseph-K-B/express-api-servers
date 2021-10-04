@@ -91,7 +91,7 @@ describe('trivia application', () => {
       .then((res) =>
       {
 
-        console.log(res.body);
+        // console.log(res.body);
         expect(res.body).toEqual(
           {
             id: '1',
