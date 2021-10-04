@@ -20,8 +20,28 @@ describe('trivia application', () => {
       .get('/api/general')
       .then((res) =>
       {
-        console.log(res.body);
         expect(res.body).toEqual(expect.any(Array));
+      });
+  });
+
+
+
+  it('posts new general question', async () =>
+  {
+    return await request(app)
+      .post('/api/general')
+      .send(
+        {
+          category: 'General Knowledge',
+          difficulty: 'easy',
+          question: 'Which Gandalf is better?',
+          answer: 'The Grey'
+        }
+      )
+      .then(res =>
+      {
+        console.log('TESTING POST', res.body);
+        expect(res.body).toEqual(expect.any(Object));
       });
   });
 
