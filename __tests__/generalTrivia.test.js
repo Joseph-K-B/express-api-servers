@@ -88,6 +88,33 @@ describe('trivia application', () => {
   });
 
 
+
+  it('updates general by id', async () =>
+  {
+    return request(app)
+      .patch('/api/general/1')
+      .send(
+        {
+          category: 'General Knowledge',
+          difficulty: 'extreme',
+          question: 'Whats the hex value for blue?',
+          answer: '#0000FF'
+        })
+      .then((res) =>
+      {
+        expect(res.body).toEqual(
+          {
+            id: '1',
+            category: 'General Knowledge',
+            difficulty: 'extreme',
+            question: 'Whats the hex value for blue?',
+            answer: '#0000FF'
+          }
+        );
+      });
+  });
+
+
   afterAll(() => 
   {
     pool.end();
