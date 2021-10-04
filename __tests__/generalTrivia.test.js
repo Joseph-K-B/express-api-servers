@@ -1,9 +1,8 @@
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
-import { request } from 'express';
-// import request from 'supertest';
+import request from 'supertest';
 import app from '../lib/app.js';
-// import generalQuestions from '../lib/models/generalTrivia.js';
+import generalQuestions from '../lib/models/generalTrivia.js';
 
 
 
