@@ -17,72 +17,72 @@ describe('trivia application', () => {
 
   ///---ANIMAL---///
   it('Get\'s animal trivia questions from API', async() => {
-    await animalFetch().post('/api/animal');
+    // await animalFetch().post('/api/animal');
     return await request(app)
       .get('/api/animal')
       .then((res) => 
       {
-        expect(res.body).toEqual({
+        expect(res.body).toEqual([{
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
           id: expect.any(String),
           category: 'Animals',
-          difficulty: expect.any(String),
+          // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
-        });
+        }]);
       });
   });
 
