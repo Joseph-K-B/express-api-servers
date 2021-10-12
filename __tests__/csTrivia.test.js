@@ -9,7 +9,7 @@ import app from '../lib/app.js';
 
 
 
-describe.skip('trivia application', () => {
+describe('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
@@ -91,12 +91,32 @@ describe.skip('trivia application', () => {
   });
 
 
-  it('updates csQuestion by id', async () =>
-  {
+  it('updates csQuestion by id', async () => {
+    
+    // const question1 = await csQuestions.insert({
+    //   category: 'Science: Computers',
+    //   difficulty: 'easy',
+    //   question: 'Who invented JavaScript?',
+    //   answer: 'Marty Nelson'
+    // });
+    const question2 = await csQuestions.insert({
+      category: 'Science: Computers',
+      difficulty: 'easy',
+      question: 'Where does data float around?',
+      answer: 'The cloud'
+    });
+    const question3 = await csQuestions.insert({
+      category: 'Science: Computers',
+      difficulty: 'easy',
+      question: 'How does JavaScript work?',
+      answer: 'Magic'
+    });
+
     return request(app)
       .patch('/api/cs/1')
       .send(
         {
+          id: '1',
           category: 'Science: Computers',
           difficulty: 'extreme',
           question: 'Who invented JavaScript?',
@@ -104,6 +124,7 @@ describe.skip('trivia application', () => {
         })
       .then((res) =>
       {
+        console.log('AT UPDATE CS QUETION BY ID TEST', res.body);
         expect(res.body).toEqual(
           {
             id: '1',

@@ -4,9 +4,10 @@ import setup from '../data/setup.js';
 import request from 'supertest';
 import app from '../lib/app.js';
 import animalTrivia from '../lib/models/animalTrivia.js';
+import { animalFetch } from '../lib/utils/fetch.js';
 
 
-describe.only('trivia application', () => {
+describe('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
@@ -16,11 +17,72 @@ describe.only('trivia application', () => {
 
   ///---ANIMAL---///
   it('Get\'s animal trivia questions from API', async() => {
+    await animalFetch().post('/api/animal');
     return await request(app)
       .get('/api/animal')
       .then((res) => 
       {
-        expect(res.body).toEqual(expect.any(Array));
+        expect(res.body).toEqual({
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        }, {
+          id: expect.any(String),
+          category: 'Animals',
+          difficulty: expect.any(String),
+          question: expect.any(String),
+          answer: expect.any(String)
+        });
       });
   });
 
@@ -106,7 +168,7 @@ describe.only('trivia application', () => {
         })
       .then((res) =>
       {
-        console.log('AT UPDATE ANIMAL QUETION BY ID TEST', res.body);
+
         expect(res.body).toEqual(
           {
             id: '1',
