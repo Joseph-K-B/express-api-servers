@@ -99,9 +99,7 @@ describe('trivia application', () => {
           question: 'What year was the Guy Fawkes Gunpowder Plot?',
           answer: '1605'
         })
-      .then((res) =>
-      {
-        console.log(res.body);
+      .then((res) => {
         expect(res.body).toEqual(
           {
             id: '1',

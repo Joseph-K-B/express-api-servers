@@ -43,7 +43,6 @@ describe('trivia application', () => {
       )
       .then(res =>
       {
-        console.log('TESTING POST', res.body);
         expect(res.body).toEqual(expect.any(Object));
       });
   });
