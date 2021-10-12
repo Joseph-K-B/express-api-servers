@@ -23,61 +23,61 @@ describe('trivia application', () => {
       .then((res) => 
       {
         expect(res.body).toEqual([{
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),
           answer: expect.any(String)
         }, {
-          id: expect.any(String),
+          // id: expect.any(String),
           category: 'Animals',
           // difficulty: expect.any(String),
           question: expect.any(String),

@@ -6,7 +6,7 @@ import app from '../lib/app.js';
 import historyTrivia from '../lib/models/historyTrivia.js';
 
 
-describe.skip('trivia application', () => {
+describe('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
