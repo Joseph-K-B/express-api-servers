@@ -9,7 +9,7 @@ import app from '../lib/app.js';
 
 
 
-describe('trivia application', () => {
+describe.skip('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);

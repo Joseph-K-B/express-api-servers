@@ -7,7 +7,7 @@ import app from '../lib/app.js';
 import randomQuestions from '../lib/models/randomTrivia.js';
 
 
-describe('trivia application', () => {
+describe.skip('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);

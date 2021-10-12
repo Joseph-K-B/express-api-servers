@@ -6,7 +6,7 @@ import app from '../lib/app.js';
 import historyTrivia from '../lib/models/historyTrivia.js';
 
 
-describe('trivia application', () => {
+describe.skip('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
@@ -99,9 +99,7 @@ describe('trivia application', () => {
           question: 'What year was the Guy Fawkes Gunpowder Plot?',
           answer: '1605'
         })
-      .then((res) =>
-      {
-        console.log(res.body);
+      .then((res) => {
         expect(res.body).toEqual(
           {
             id: '1',

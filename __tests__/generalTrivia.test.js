@@ -9,7 +9,7 @@ import { generalFetch } from '../lib/utils/fetch.js';
 
 
 
-describe('trivia application', () => {
+describe.skip('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
@@ -43,7 +43,6 @@ describe('trivia application', () => {
       )
       .then(res =>
       {
-        console.log('TESTING POST', res.body);
         expect(res.body).toEqual(expect.any(Object));
       });
   });

@@ -6,7 +6,7 @@ import app from '../lib/app.js';
 import animalTrivia from '../lib/models/animalTrivia.js';
 
 
-describe('trivia application', () => {
+describe.only('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
@@ -15,8 +15,7 @@ describe('trivia application', () => {
 
 
   ///---ANIMAL---///
-  it('Get\'s animal trivia questions from API', async() =>
-  {
+  it('Get\'s animal trivia questions from API', async() => {
     return await request(app)
       .get('/api/animal')
       .then((res) => 
@@ -27,8 +26,7 @@ describe('trivia application', () => {
 
 
 
-  it('it posts animal questions to /animals', async () =>
-  {
+  it('it posts animal questions to /animals', async () => {
     return await request(app)
       .post('/api/animal')
       .send(
@@ -47,15 +45,7 @@ describe('trivia application', () => {
 
 
 
-  it('gets animal question by id from db', async () =>
-  {
-    const question1 = await animalTrivia.insert(
-      {
-        category: 'Animals',
-        difficulty: 'easy',
-        question: 'What is the collective noun for rats?',
-        answer: 'Mischief'
-      });
+  it('gets animal question by id from db', async () => {
     const question2 = await animalTrivia.insert(
       {
         category: 'Animals',
@@ -72,13 +62,13 @@ describe('trivia application', () => {
       }
     );
     return request(app)
-      .get('/api/animal/2')
+      .get('/api/animal/1')
       .then((res) =>
       {
         expect(res.body).toEqual(
           {
-            id: '2',
-            category: 'Animals',
+            id: '1',
+            category: 'Animal',
             difficulty: expect.any(String),
             question: expect.any(String),
             answer: expect.any(String)
@@ -88,12 +78,27 @@ describe('trivia application', () => {
 
 
 
-  it('updates animalQuestion by id', async () =>
-  {
+  it('updates animalQuestion by id', async () => {
+    const question2 = await animalTrivia.insert(
+      {
+        category: 'Animals',
+        difficulty: 'easy',
+        question: 'What is the collective noun for crows?',
+        answer: 'Murder'
+      });
+    const question3 = await animalTrivia.insert(
+      {
+        category: 'Animals',
+        difficulty: 'easy',
+        question: 'What is the largest species of bear?',
+        answer: 'Polar Bear'
+      }
+    );
     return request(app)
-      .patch('/api/cs/1')
+      .patch('/api/animal/1')
       .send(
         {
+          id: '1',
           category:'Animals',
           difficulty: 'easy',
           question: 'What is the collective noun for rats?',
@@ -101,6 +106,7 @@ describe('trivia application', () => {
         })
       .then((res) =>
       {
+        console.log('AT UPDATE ANIMAL QUETION BY ID TEST', res.body);
         expect(res.body).toEqual(
           {
             id: '1',
@@ -114,8 +120,7 @@ describe('trivia application', () => {
   });
 
 
-  it('deletes animal question from DB by ID', async () =>
-  {
+  it('deletes animal question from DB by ID', async () => {
     const question1 = await animalTrivia.insert(
       {
         category: 'Animals',

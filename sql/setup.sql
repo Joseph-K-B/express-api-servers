@@ -81,7 +81,7 @@ INSERT INTO cs_trivia (
     difficulty, 
     question,
     answer) 
-  VALUES ('Animal', null, 'What is the collective noun for rats?', 'Mischief');
+  VALUES ('Animal', 'hard', 'What is the collective noun for rats?', 'Mischief');
 
 
 
