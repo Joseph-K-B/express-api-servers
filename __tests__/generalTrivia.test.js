@@ -9,7 +9,7 @@ import { generalFetch } from '../lib/utils/fetch.js';
 
 
 
-describe.skip('trivia application', () => {
+describe('trivia application', () => {
   beforeEach(() => 
   {
     return setup(pool);
