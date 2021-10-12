@@ -72,12 +72,12 @@ describe('trivia application', () => {
       }
     );
     return request(app)
-      .get('/api/animal/3')
-      .then(res =>
+      .get('/api/animal/2')
+      .then((res) =>
       {
         expect(res.body).toEqual(
           {
-            id: '3',
+            id: '2',
             category: 'Animals',
             difficulty: expect.any(String),
             question: expect.any(String),
